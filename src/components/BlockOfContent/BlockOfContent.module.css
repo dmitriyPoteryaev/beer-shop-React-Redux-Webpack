@@ -1,0 +1,74 @@
+.blockForContent{
+  width: calc(50% - 12px);
+  height: 372px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: "PT Sans", sans-serif;
+  border-radius: 5%;
+  cursor: pointer;
+}
+.TitleOfBeer {
+  position: absolute;
+  width:200px;
+  top: 20px;
+  right: 150px;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  height: 18px;
+  font-style: normal;
+}
+.content_picture {
+  position: absolute;
+  left: 80px;
+  top: 18px;
+  width: 102px;
+  height: 280px;
+}
+.abv {
+  position: absolute;
+  left: 15px;
+  top: 17px;
+  margin: 0;
+  padding: 0;
+  color:red;
+}
+.ForOrder {
+  position: absolute;
+  right: 18px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.TitleDescription{
+  position: absolute;
+  color:green;
+  right: 240px;
+  top: 110px;
+  font-weight: 800;
+}
+.description{
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: 400;
+  right: 18px;
+  top: 140px;
+  width:300px;
+  height: 300px;
+
+}
+
+/* mobile */
+
+@media (max-width: 828px) {
+  .blockForContent {
+    width: calc(100% - 12px);
+  }
+}
+
