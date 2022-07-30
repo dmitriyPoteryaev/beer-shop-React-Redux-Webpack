@@ -30,6 +30,28 @@ const BeerPage = () => {
 
     return (
         <div className={classes.container}>
+           {/* mobile */}
+           <div>
+            <div className={classes.beerName_mobile}>{currenBeer.name}</div>
+            <h1 className={classes.tagline_mobile}>{currenBeer.tagline}</h1>
+            </div>
+            <div className={classes.leftColumn_mobile} >
+            <img src={
+             currenBeer.image_url
+            } 
+              />
+              <div className={classes.abv_mobile}>{currenBeer.abv}%</div>
+              </div>
+          <div  className={classes.rightColumn_mobile}>
+            <div className={classes.beerFulldescription_mobile}>
+            <div className={classes.beerDescription_mobile}>{currenBeer.description}</div>
+            </div>
+            <div className={classes.food_pairing}>
+            <h2>What food to eat with this beer?</h2>
+              {currenBeer.food_pairing}</div>
+            </div>
+
+          {/* full screen */}
           <div className={classes.leftColumn} >
             <img src={
              currenBeer.image_url
@@ -40,11 +62,15 @@ const BeerPage = () => {
           <div  className={classes.rightColumn}>
             <div className={classes.beerFulldescription}>
             <div className={classes.beerName}>{currenBeer.name}</div>
-            <div className={classes.tagline}>{currenBeer.tagline}</div>
+            <h1 className={classes.tagline}>{currenBeer.tagline}</h1>
             <div className={classes.beerDescription}>{currenBeer.description}</div>
-            <div>{currenBeer.food_pairing}</div>
             </div>
+            <div className={classes.food_pairing}>
+               <h2>What food to eat with this beer?</h2>
+              {currenBeer.food_pairing}</div>
             </div>
+
+           
         </div>
     );
 };

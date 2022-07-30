@@ -14,9 +14,9 @@ const Sorting = ({filterSelector,setfilterSelector}) => {
         <Filter
         filterSelector={filterSelector}
         setfilterSelector={setfilterSelector}
-          defaultName="Сортировка по:"
+          defaultName="Sort by:"
           options={[
-            { name: "По крепости", value: "abv" }
+            { name: "abv", value: "abv" }
           ]}
         />
     

@@ -113,7 +113,7 @@
   min-height: 100vh;
 }
 .navbar {
-  height: 100px;
+  height: 300px;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -121,10 +121,29 @@
   background: lightgray;
 }
 .navbar__links {
+  text-decoration: none;
   margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   width: 200px;
+}
+.navbar__links_about {
+  font-size: 36px;
+  text-decoration: none;
+  color:black;
+}
+.navbar__links_beer {
+  font-size: 36px;
+  text-decoration: none;
+  color:black;
+}
+.navbar__links_about:hover {
+  text-decoration: none;
+  color:green
+}
+.navbar__links_beer:hover {
+  text-decoration: none;
+  color:green;
 }
 .searchContent {
   margin-top: 100px;
@@ -146,8 +165,8 @@
 }
 
 .Page {
+  text-decoration: none;
   padding: 10px;
-  cursor: pointer;
   color:white;
   width: 40px;
   height:40px;
@@ -160,13 +179,13 @@
   font-weight: 800;
 }
 .PageActive {
+  text-decoration: none;
   padding: 10px;
   width: 40px;
   height:40px;
   border-radius:50%;
   color:white;
   background-color: orange;
-  cursor: pointer;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
   margin-left: 10px;
   margin-right: 10px;
@@ -213,7 +232,7 @@
 }
 @media (max-width: 600px) {
   .Allcontent {
-    width: 552px;
+    width: 528px;
   }
 
 }

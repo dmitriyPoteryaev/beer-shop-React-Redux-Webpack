@@ -9,7 +9,7 @@ const Attention = ({visiable}) => {
     return (
         <div   className={visiable ? [classes.Attention_hide].join(''): [classes.Attention_vis].join('') }>
         <img src={exclamation} />
-        <div>Все поля обязательные.</div>
+        <div>All fields are required</div>
       </div>
     );
 };

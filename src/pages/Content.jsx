@@ -18,7 +18,7 @@ import GoodBye from "../components/UI/GoodBye/GoodBye.jsx";
 import Input from "../Input.jsx";
 import getPages from "../utilits/getPages.js";
 import ListPage from "../components/UI/ListPage/ListPage.jsx";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 function Content() {
   const [visiableOfModal, setVisiableOfModal] = useState(false);
@@ -28,38 +28,33 @@ function Content() {
   const [filterInput, setfilterInput] = useState("");
   const [somethingContent, setSomethingContent] = useState([]);
 
-
   // всё что относится к пагинации
   const [TotalCount, setTotalCount] = useState(325);
   const [TotalPages, setTotalPages] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
   const [limit, setLimit] = useState(25);
 
-  const Content = useSortingContent(somethingContent, filterSelector,filterInput);
+  const Content = useSortingContent(
+    somethingContent,
+    filterSelector,
+    filterInput
+  );
 
   const [fetching, isLoading, error] = useFetching(async () => {
     setfilterSelector("");
-    const res = await ContentServies.GetQuery(limit,currentPage);
+    const res = await ContentServies.GetQuery(limit, currentPage);
     setSomethingContent(res.data);
-    setTotalPages(getPages(TotalCount,limit))
-
+    setTotalPages(getPages(TotalCount, limit));
   });
 
   const params = useParams();
 
-
-
   useEffect(() => {
-    setcurrentPage(params.currentPage)
-
-
-    
+    setcurrentPage(params.currentPage);
   }, [params.currentPage]);
 
   useEffect(() => {
     fetching();
-
-    
   }, [currentPage]);
 
   const removeOrderPosition = (orderPosition) => {
@@ -68,9 +63,8 @@ function Content() {
     );
   };
 
- 
   return (
-    <div >
+    <div>
       <Header
         quality={positionForOrder.length}
         getVisModal={setVisiableOfModal}
@@ -79,7 +73,7 @@ function Content() {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <h1 className="Error">Произошла ошибка ${error}</h1>
+        <h1 className="Error">An error has occurred ${error}</h1>
       ) : (
         <div>
           <div className="Filter">
@@ -88,32 +82,24 @@ function Content() {
               setfilterSelector={setfilterSelector}
             />
           </div>
-          <Input
-          setfilterInput={setfilterInput}
-          /> 
-       <ListPage 
-       TotalPages={TotalPages}
-       currentPage={currentPage}
-       />  
+          <Input setfilterInput={setfilterInput} />
+
           <div className="Allcontent">
-            {Content.length!==0
-            ?
-           ( Content.map((content) => (
-              <BlockOfContent
-                value={content}
-                key={content.id}
-                addThingForOrder={setPositionForOrder}
-                quantityThingForOrder1={positionForOrder}
-                currentPage={currentPage}
-              />
-            )))
-            :
-          (<h1>Мы не нашли по Вашему запросу пиво</h1>)
-          }
-         <ListPage 
-       TotalPages={TotalPages}
-       currentPage={currentPage}
-       />  
+            <ListPage TotalPages={TotalPages} currentPage={currentPage} />
+            {Content.length !== 0 ? (
+              Content.map((content) => (
+                <BlockOfContent
+                  value={content}
+                  key={content.id}
+                  addThingForOrder={setPositionForOrder}
+                  quantityThingForOrder1={positionForOrder}
+                  currentPage={currentPage}
+                />
+              ))
+            ) : (
+              <h1>We didn't find beer for your request</h1>
+            )}
+            <ListPage TotalPages={TotalPages} currentPage={currentPage} />
 
             <ModalForOrder
               visiable={visiableOfModal}
@@ -125,7 +111,7 @@ function Content() {
                 positionForOrder.length !== 0 ? (
                   <div className="ContetnForOrder">
                     <div className="HeaderOfModal">
-                      <h1 className="TitleNothingOrder">Корзина</h1>
+                      <h1 className="TitleNothingOrder">Basket</h1>
                       <img
                         src={cross}
                         className="cross"
@@ -133,7 +119,7 @@ function Content() {
                       />
                     </div>
                     <div className="FullInfoAboutThingOrder">
-                      Товары в корзине
+                      Products in the basket
                     </div>
                     {positionForOrder.map((contentForOrder) => (
                       <BlockForOrder
@@ -142,7 +128,7 @@ function Content() {
                         remove={removeOrderPosition}
                       />
                     ))}
-                    <p className="FullInfoAboutClient">Оформить заказ</p>
+                    <p className="FullInfoAboutClient">Place an order</p>
                     <Form
                       quantityThingForOrder={positionForOrder.length}
                       visiable={visiableOfModal}
@@ -154,7 +140,7 @@ function Content() {
                 ) : (
                   <div className="NothingOrder">
                     <div className="HeaderOfModal">
-                      <h1 className="TitleNothingOrder">Корзина</h1>
+                      <h1 className="TitleNothingOrder">Basket</h1>
                       <img
                         src={cross}
                         className="cross"
@@ -162,12 +148,12 @@ function Content() {
                       />
                     </div>
                     <div className="AttenrionNothingOrder">
-                      Пока что вы ничего не добавли в корзину
+                      So far you haven't added anything to the cart
                     </div>
                     <ButtonForBackOrSendOrder
                       funcModChoice={setVisiableOfModal}
                     >
-                      Перейти к выбору
+                      Go to the selection
                     </ButtonForBackOrSendOrder>
                   </div>
                 )

@@ -12,7 +12,10 @@ const BlockOfContent = ({value,key,addThingForOrder,quantityThingForOrder1,curre
     const {name,id,image_url,abv,description} = value;
   
     return (
-        <div className={classes.blockForContent} onClick={()=>router(`/beer/${currentPage}/${id}`)} >
+        <div className={classes.blockForContent} 
+        onClick={()=>router(`/beer/${currentPage}/${id}`)}
+
+        >
          
             <p className={classes.TitleOfBeer}> {name}</p>
             <img src={
@@ -25,12 +28,13 @@ const BlockOfContent = ({value,key,addThingForOrder,quantityThingForOrder1,curre
             src={PitureButtonForOrder} 
              className={classes.ForOrder} 
               alt={'PitureButtonForOrder'}
-              
+              key={id}
               onClick={(event)=>{addThingForOrder([...quantityThingForOrder1,    
             {name,
             id:Date.now(),
             image_url,
-            abv
+            abv,
+            key:Date.now()
             }]
             ),event.stopPropagation()}}
             

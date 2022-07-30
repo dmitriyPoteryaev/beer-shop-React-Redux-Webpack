@@ -10,7 +10,7 @@ const GoodBye = ({setGoodBye}) => {
   return (
     <div className={classes.successful}>
       <div className={classes.HeaderOfModal}>
-        <h1 className={classes.TitleNothingOrder}>Корзина</h1>
+        <h1 className={classes.TitleNothingOrder}>Basket</h1>
         <img src={cross}
         className={classes.cross}
         onClick={()=>setGoodBye(true)}
@@ -18,8 +18,8 @@ const GoodBye = ({setGoodBye}) => {
       </div>
       <div className={classes.ok}>
         <img src={ok} />
-        <div>Заявка успешно отправлена</div>
-        <div>Вскоре наш менеджер свяжется с Вами</div>
+        <div>The application has been sent successfully</div>
+        <div>Our manager will contact you soon</div>
       </div>
     </div>
   );

@@ -90,7 +90,7 @@ const Form = ({
         setFullInfo={setFullInfo}
         TimeAttention={TimeAttention}
       >
-        Отправить
+        Send
       </ButtonForBackOrSendOrder>
 
       
