@@ -10,7 +10,10 @@ const ButtonForBackOrSendOrder = ({
   createNewOrder,
   TimeAttention,
 }) => {
-  
+
+  console.log(quantityThingForOrder)
+
+
 
   return (
     <button

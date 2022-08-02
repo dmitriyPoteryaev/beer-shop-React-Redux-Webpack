@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 
+
 module.exports = {
    
     // собираем всё в режиме разработки
@@ -30,6 +31,11 @@ module.exports = {
        },
         port: 8081,
         open: true
+      },
+      resolve:{
+
+extensions: ['.js', '.jsx']
+
       },
       plugins: [
         new HTMLWebpackPlugin({

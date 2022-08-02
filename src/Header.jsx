@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonForOrder from './components/UI/ButtonForOrder/ButtonForOrder.jsx';
 
 
-const Header = ({quality,getVisModal}) => {
+const Header = ({setVisiableOfModal}) => {
 
     
     return (
@@ -10,8 +10,8 @@ const Header = ({quality,getVisModal}) => {
         <div className="Logo">
         </div>
         <ButtonForOrder 
-   quality={quality}
-   getVisModal={getVisModal}
+       
+   setVisiableOfModal={setVisiableOfModal}
          />
       </div>
     );
