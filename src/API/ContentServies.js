@@ -12,13 +12,9 @@ export   class  ContentServies{
 static async GetQuery  (limit=25, page=1) {
 
    
-     const response = await axios.get(`https://api.punkapi.com/v2/beers?page=${page}&per_page=${limit}`,{
-params:{
-    _limit: limit,
-    _page: page
-}
-     });
+     const response = await axios.get(` http://localhost:3000/beer_${page}_limit_${limit}`);
    
+     console.log(response)
     
     return response;
 }

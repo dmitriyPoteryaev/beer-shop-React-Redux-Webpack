@@ -43,6 +43,7 @@ function Content() {
     setfilterSelector("");
     const res = await ContentServies.GetQuery(limit, currentPage);
     setSomethingContent(res.data);
+  console.log(res.data)
     setTotalPages(getPages(TotalCount, limit));
   });
 
