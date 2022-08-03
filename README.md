@@ -1,6 +1,7 @@
 # beer-shop
 
 
-#Запустить проект
-#npx json-server src/API/db.json
-#npm run start
+## Как запустить проект
+- `npm install`
+- `npx json-server src/API/db.json` 
+- `npm run start` - 
