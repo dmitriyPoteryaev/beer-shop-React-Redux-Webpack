@@ -4,13 +4,12 @@ import PitureButtonForOrder from "../../assets/PitureButtonForOrder.png";
 import blackButtonForOrder from "../../assets/blackButtonForOrder.png";
 import CheckDesc from "../../utilits/CheckDesc.js";
 import { useNavigate } from "react-router-dom";
-import { useDispatch  } from "react-redux";
+import { useDispatch ,useSelector } from "react-redux";
+import { setAsyncBeer } from "../../Redux/reducers/BeerReducer";
 
 const BlockOfContent = ({ value,currentPage }) => {
   const router = useNavigate();
-
   const dispatch = useDispatch();
-
 
 
   function addOrder(order){
@@ -22,18 +21,18 @@ const BlockOfContent = ({ value,currentPage }) => {
   return (
     <div
       className={classes.blockForContent}
-      onClick={() => router(`/beer/${currentPage}/${id}`)}
+      onClick={() =>router(`/beer/${currentPage}/${name}`) }
     >
       <p className={classes.TitleOfBeer}> {name}</p>
       <img
         src={image_url}
         className={classes.content_picture}
-        alt={"PictureOfSomethingBeer"}
+        alt={"SomethingBeer"}
       />
       <img
         src={PitureButtonForOrder}
         className={classes.ForOrder}
-        alt={"PitureButtonForOrder"}
+        alt={"ButtonForOrder"}
         onClick={(event) => {
           addOrder({ 
             id:Date.now(),

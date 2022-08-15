@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const ListPage = ({ TotalPages }) => {
+const ListPage = () => {
   const params = useParams();
 
+  const [TotalCount, setTotalCount] = useState(325);
+  const [TotalPage, setTotalPages] = useState([]);
+  const [currentPage, setcurrentPage] = useState(1);
+  const [limit, setLimit] = useState(25);
+  
+const TotalPages = [1,2,3,4,5,6,7,8,9,10,11,12,13]
   useEffect(() => {
     params.currentPage == 1
       ? setbordTotalPages(
@@ -25,6 +31,8 @@ const ListPage = ({ TotalPages }) => {
   }, [params.currentPage]);
 
   const [bordTotalPages, setbordTotalPages] = useState([]);
+
+  console.log(bordTotalPages)
 
   return (
     <div className="BlockPages">
@@ -63,8 +71,8 @@ const ListPage = ({ TotalPages }) => {
       <Link
         className="Next"
         to={`/beer/${
-          +params.currentPage == 13
-            ? (params.currentPage = 13)
+          +params.currentPage == TotalPages.length
+            ? (params.currentPage = TotalPages.length)
             : +params.currentPage + 1
         }`}
       >

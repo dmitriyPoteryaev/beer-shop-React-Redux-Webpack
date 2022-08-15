@@ -10,7 +10,7 @@ const BlockForOrder = () => {
     const orderPositions = useSelector(state=>state.order.OrderPosition)
 
 
-    console.log(orderPositions)
+
 
     function DeleteOrder(id){
       dispatch({type:'DELETE_ORDER', payload:id})
@@ -20,16 +20,18 @@ const BlockForOrder = () => {
 
     return (
         orderPositions.map((orderPosition)=>
-        <div className={classes.blockForContent}>
+        <div 
+        key={orderPosition.id}
+        className={classes.blockForContent}>
         <p className={classes.TitleOfThing}> {orderPosition.name}</p>
         <img src={orderPosition.image_url} 
          className={classes.content_picture}
-           alt={'PictureOfSomethinContent'}/>
+           alt={'SomethingContent'}/>
         <p className={classes.abv}>{orderPosition.abv} %</p>
         <img
          src={trash} 
           className={classes.img_trash} 
-           alt={'PictureForTrash'}
+           alt={'ForTrash'}
             onClick={()=>DeleteOrder(orderPosition.id)}
             onMouseOver={(event)=>(event.currentTarget.src = blacktrash)}
             onMouseOut={(event)=>(event.currentTarget.src = trash)}/>

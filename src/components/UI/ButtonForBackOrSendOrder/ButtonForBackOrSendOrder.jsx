@@ -1,37 +1,41 @@
 import React from "react";
 import classes from "./ButtonForBackOrSendOrder.module.css";
+import {useSelector, useDispatch  } from "react-redux";
 
 const ButtonForBackOrSendOrder = ({
   children,
-  funcModChoice,
-  quantityThingForOrder,
-  visiable,
-  newOrder,
+  FullInfo,
   createNewOrder,
   TimeAttention,
 }) => {
+  const dispatch = useDispatch();
+  const orderPositions = useSelector(state=>state.order.OrderPosition.length)
+  const CurOrderPos = useSelector(state=>state.order.OrderPosition)
+  const visMod = useSelector(state => state.visMod.visModal);
 
-  console.log(quantityThingForOrder)
+  function HideMod(hide){
+    dispatch({type:'HIDE_MOD',payload:hide})
 
+}
 
 
   return (
     <button
       className={classes.bottomforBackorSendOrderBlack}
       onClick={() => {
-        quantityThingForOrder !== 0 && visiable
-          ? newOrder.Adress === null ||
-            newOrder.Phone === null ||
-            newOrder.Name === null ||
-            newOrder.Adress === "" ||
-            newOrder.Phone === "" ||
-            newOrder.Name === ""
+        orderPositions !== 0 && visMod
+          ? FullInfo.Adress === null ||
+          FullInfo.Phone === null ||
+          FullInfo.Name === null ||
+          FullInfo.Adress === "" ||
+          FullInfo.Phone === "" ||
+          FullInfo.Name === ""
             ? TimeAttention()
-            : createNewOrder(newOrder)
-          : funcModChoice(false);
+            : createNewOrder(CurOrderPos)
+            : HideMod(false);
       }}
       onMouseOver={(event) => {
-        quantityThingForOrder !== 0 && visiable
+        orderPositions !== 0 && visMod
           ? (event.currentTarget.className =
               classes.bottomforBackorSendOrderGrey)
           : (event.currentTarget.className =

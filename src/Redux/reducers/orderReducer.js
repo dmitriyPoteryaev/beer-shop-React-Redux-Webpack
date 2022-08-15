@@ -1,11 +1,10 @@
 
+export const GET_BEER = 'GET_BEER'
 
 const defaultState={
 
     OrderPosition:[]
 }
-
-
 
 export default function orderReducer(state=defaultState,action) {
 
@@ -17,6 +16,10 @@ case 'ADD_ORDER':
 
     case 'DELETE_ORDER':
         return {...state, OrderPosition: state.OrderPosition.filter((position) => position.id !== action.payload) }
+
+        case 'ALL_DELETE_ORDER':
+        return {...state, OrderPosition: action.payload }
+
         default:
             return state
     }
@@ -24,5 +27,6 @@ case 'ADD_ORDER':
 
 
 }
+
 
 

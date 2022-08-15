@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 
-export const useFetching=(callback,ind)=>{
+export const useFetching=(callback)=>{
 
 const [isLoading,setIsLoading] = useState(false)
 const [error,setError] = useState('')
@@ -11,7 +11,7 @@ const fetch= async ()=>{
 
 try{
     setIsLoading(true)
-    await callback(ind)
+    await callback()
   
 
 }

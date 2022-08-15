@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BlockOfContent from "../components/BlockOfContent/BlockOfContent.jsx";
-import "../style/style.scss";
+import "../../style/style.scss"
 import cross from "../assets/cross.png";
 import BlockForOrder from "../components/UI/BlockForOrder/BlockForOrder.jsx";
 import ButtonForBackOrSendOrder from "../components/UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder.jsx";
@@ -9,67 +9,58 @@ import Header from "../Header.jsx";
 import Sorting from "../Sorting.jsx";
 import { useSortingContent } from "../customHooks/useSortingContent.js";
 import Form from "../Form.jsx";
-import { useFetching } from "../customHooks/useFetching.js";
 import Loader from "../components/UI/Loader/Loader.jsx";
-import { ContentServies } from "../API/ContentServies.js";
 import GoodBye from "../components/UI/GoodBye/GoodBye.jsx";
 import Input from "../Input.jsx";
-import getPages from "../utilits/getPages.js";
 import ListPage from "../components/UI/ListPage/ListPage.jsx";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
 function Content() {
-  const [visiableOfModal, setVisiableOfModal] = useState(false);
-  const [positionForOrder, setPositionForOrder] = useState([]);
+
+  const dispatch = useDispatch();
+  const params = useParams()
+
+  const beer = useSelector((state) => state.beer.dataBeer);
+  const errorRedux = useSelector((state) => state.beer.error);
+  const isLoadingRedux = useSelector((state) => state.beer.isLoading);
+  const qualityOrder = useSelector((state) => state.order.OrderPosition.length);
+  
   const [goodBye, setGoodBye] = useState(true);
   const [filterSelector, setfilterSelector] = useState("");
   const [filterInput, setfilterInput] = useState("");
-  const [somethingContent, setSomethingContent] = useState([]);
 
   // всё что относится к пагинации
-  const [TotalCount, setTotalCount] = useState(325);
-  const [TotalPages, setTotalPages] = useState([]);
+ 
   const [currentPage, setcurrentPage] = useState(1);
   const [limit, setLimit] = useState(25);
 
-  const Content = useSortingContent(
-    somethingContent,
-    filterSelector,
-    filterInput
-  );
+  function HideMod(hide) {
+    dispatch({ type: 'HIDE_MOD', payload: hide })
 
-  const [fetching, isLoading, error] = useFetching(async () => {
-    setfilterSelector("");
-    const res = await ContentServies.GetQuery(limit, currentPage);
-    setSomethingContent(res.data);
-  console.log(res.data)
-    setTotalPages(getPages(TotalCount, limit));
-  });
-
-  const params = useParams();
-
- 
-  const qualityOrder =  useSelector(state=>state.order.OrderPosition.length)
+  }
 
   useEffect(() => {
+
     setcurrentPage(params.currentPage);
+
   }, [params.currentPage]);
 
   useEffect(() => {
-    fetching();
+    setfilterSelector("");
+    setfilterInput("");
+
   }, [currentPage]);
+
+  console.log(beer)
 
   return (
     <div>
-      <Header
-        setVisiableOfModal={setVisiableOfModal}
-      />
+      <Header />
 
-      {isLoading ? (
+      {isLoadingRedux ? (
         <Loader />
-      ) : error ? (
-        <h1 className="Error">An error has occurred ${error}</h1>
+      ) : errorRedux ? (
+        <h1 className="Error">An error has occurred ${errorRedux}</h1>
       ) : (
         <div>
           <div className="Filter">
@@ -81,10 +72,16 @@ function Content() {
           <Input setfilterInput={setfilterInput} />
 
           <div className="Allcontent">
-            <ListPage TotalPages={TotalPages} currentPage={currentPage} />
+            <ListPage />
 
-            {Content.length !== 0 ? (
-              Content.map((content) => (
+            {useSortingContent(beer[0][`beer_${currentPage}_limit_${limit}`],
+              filterSelector,
+              filterInput
+            ).length !== 0 ? (
+              useSortingContent(beer[0][`beer_${currentPage}_limit_${limit}`],
+                filterSelector,
+                filterInput
+              ).map((content) => (
                 <BlockOfContent
                   value={content}
                   key={content.id}
@@ -94,14 +91,8 @@ function Content() {
             ) : (
               <h1>We didn't find beer for your request</h1>
             )}
-
-            <ListPage TotalPages={TotalPages} currentPage={currentPage} />
-
-            <ModalForOrder
-              visiable={visiableOfModal}
-              funcForModal2={setVisiableOfModal}
-              setGoodBye={setGoodBye}
-            >
+            <ListPage />
+            <ModalForOrder setGoodBye={setGoodBye}>
               {goodBye ? (
                 qualityOrder !== 0 ? (
                   <div className="ContetnForOrder">
@@ -110,21 +101,15 @@ function Content() {
                       <img
                         src={cross}
                         className="cross"
-                        onClick={() => setVisiableOfModal(false)}
+                        onClick={() => HideMod(false)}
                       />
                     </div>
                     <div className="FullInfoAboutThingOrder">
                       Products in the basket
-                    </div>   
-                      <BlockForOrder/>
+                    </div>
+                    <BlockForOrder />
                     <p className="FullInfoAboutClient">Place an order</p>
-                    <Form
-                      quantityThingForOrder={positionForOrder.length}
-                      visiable={visiableOfModal}
-                      ThingForOrderForm={positionForOrder}
-                      setPositionForOrder={setPositionForOrder}
-                      setGoodBye={setGoodBye}
-                    />
+                    <Form  setGoodBye={setGoodBye} />
                   </div>
                 ) : (
                   <div className="NothingOrder">
@@ -133,15 +118,13 @@ function Content() {
                       <img
                         src={cross}
                         className="cross"
-                        onClick={() => setVisiableOfModal(false)}
+                        onClick={() => HideMod(false)}
                       />
                     </div>
                     <div className="AttenrionNothingOrder">
                       So far you haven't added anything to the cart
                     </div>
-                    <ButtonForBackOrSendOrder
-                      funcModChoice={setVisiableOfModal}
-                    >
+                    <ButtonForBackOrSendOrder>
                       Go to the selection
                     </ButtonForBackOrSendOrder>
                   </div>

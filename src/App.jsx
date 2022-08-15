@@ -15,7 +15,7 @@ function App() {
 
           <Route exact path={"/beer/:currentPage"} element={<Content />} />
 
-          <Route exact path={"/beer/:currentPage/:id"} element={<BeerPage />} />
+          <Route exact path={"/beer/:currentPage/:name"} element={<BeerPage />} />
 
           <Route path="*" element={<About />} />
         </Routes>

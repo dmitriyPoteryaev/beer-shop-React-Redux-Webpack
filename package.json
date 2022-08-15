@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open",
+    "backend": "npx json-server ./db1.json",
     "build": "webpack --mode production",
+    "start:backend": "npm run start || npm run backend",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -48,6 +50,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "redux-saga": "^1.1.3"
   }
 }

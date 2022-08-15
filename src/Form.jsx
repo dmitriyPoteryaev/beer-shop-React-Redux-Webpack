@@ -3,35 +3,44 @@ import { ContentServies } from "./API/ContentServies.js";
 import ButtonForBackOrSendOrder from "./components/UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder.jsx";
 import Attention from "./utilits/Attention/Attention.jsx";
 import InputMask from "react-input-mask";
+import { useDispatch } from "react-redux";
 
-const Form = ({
-  quantityThingForOrder,
-  visiable,
-  ThingForOrderForm,
-  setPositionForOrder,
-  setGoodBye
-}) => {
+const Form = ({ setGoodBye }) => {
+  const dispatch = useDispatch();
+
+  function DeleteAllOrders() {
+    dispatch({ type: "ALL_DELETE_ORDER", payload: [] });
+  }
+
+
   const [FullInfo, setFullInfo] = useState({
     Name: "",
     Phone: "",
     Adress: "",
   });
 
+  console.log(FullInfo)
+
   const [attention, setAttention] = useState(true);
 
-  const newOrder = { ...FullInfo, id: Date.now(), ThingForOrderForm };
+ 
 
   async function createNewOrder(data) {
-    await ContentServies.PostQuery(data);
+
+    const newOrder = { 
+      FullInfo,
+      id: Date.now(),
+       data };
+
+    await ContentServies.PostQuery(newOrder);
 
     setFullInfo({
       Name: "",
       Phone: "",
       Adress: "",
     });
-    setGoodBye(false)
-    setPositionForOrder("");
-
+    setGoodBye(false);
+    DeleteAllOrders();
   }
 
   function TimeAttention() {
@@ -41,14 +50,15 @@ const Form = ({
       setAttention(true);
     }, 3000);
   }
+ 
 
   return (
     <div>
       <form>
-      <Attention visiable={attention} />
+        <Attention visiable={attention} />
         <input
           type="text"
-          placeholder="Ваше имя"
+          placeholder="Your name"
           value={FullInfo.Name}
           className="InfoAboutClient"
           onChange={(event) =>
@@ -66,7 +76,7 @@ const Form = ({
         >
           {() => (
             <input
-              placeholder="Телефон"
+              placeholder="Telephone"
               type="tel"
               className="InfoAboutClient"
             />
@@ -74,7 +84,7 @@ const Form = ({
         </InputMask>
         <input
           type="text"
-          placeholder="Адрес"
+          placeholder="Adress"
           value={FullInfo.Adress}
           className="InfoAboutClient"
           onChange={(event) =>
@@ -83,17 +93,12 @@ const Form = ({
         ></input>
       </form>
       <ButtonForBackOrSendOrder
+        FullInfo={FullInfo}
         createNewOrder={createNewOrder}
-        newOrder={newOrder}
-        quantityThingForOrder={quantityThingForOrder}
-        visiable={visiable}
-        setFullInfo={setFullInfo}
         TimeAttention={TimeAttention}
       >
         Send
       </ButtonForBackOrSendOrder>
-
-      
     </div>
   );
 };
