@@ -3,5 +3,5 @@
 
 ## Как запустить проект
 - `npm install`
-- `npx json-server src/API/db.json` 
+- `npx run backend ` 
 - `npm run start` - 
