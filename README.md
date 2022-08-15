@@ -4,4 +4,4 @@
 ## Как запустить проект
 - `npm install`
 - `npx run backend ` 
-- `npm run start` - 
+- `npm run start` - ------
