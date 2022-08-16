@@ -43901,24 +43901,7 @@
     }
   ],
   "requests": [
-    {
-      "order": {
-        "FullInfo": {
-          "Name": "Потеряев Дмитрий",
-          "Phone": "+79 64 567-16-54",
-          "Adress": "ewfewfwfew"
-        },
-        "id": 1660592764776,
-        "data": [
-          {
-            "id": 1660592758728,
-            "image_url": "https://images.punkapi.com/v2/keg.png",
-            "abv": 4.5,
-            "key": 1660592758728
-          }
-        ]
-      },
-      "id": 1
-    }
+    
+
   ]
 }

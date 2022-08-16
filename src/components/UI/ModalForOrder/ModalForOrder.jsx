@@ -1,32 +1,29 @@
 import React from "react";
 import classes from "./ModalForOrder.module.css";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const ModalForOrder = ({
-  children,
-  visiable,
-  setGoodBye
-}) => {
+const ModalForOrder = ({ children, setGoodBye }) => {
   const StyleModal = [classes.modalForOrder];
 
-  const dispatch = useDispatch();
-  function HideMod(hide){
-    dispatch({type:'HIDE_MOD',payload:hide})
-
-}
-
-
   const visMod = useSelector((state) => state.visMod.visModal);
+  const dispatch = useDispatch();
 
-// visiable - должен везде удалиться
-  if (visMod||visiable) {
+  function HideMod(hide) {
+    dispatch({ type: "HIDE_MOD", payload: hide });
+  }
+
+  if (visMod) {
     StyleModal.push(classes.active);
   }
 
   return (
-    <div className={StyleModal.join(" ")}
-     onClick={() => {HideMod(false);setGoodBye(true)}}>
-      
+    <div
+      className={StyleModal.join(" ")}
+      onClick={() => {
+        HideMod(false);
+        setGoodBye(true);
+      }}
+    >
       <div
         className={classes.contentOfModal}
         onClick={(event) => event.stopPropagation()}

@@ -12,34 +12,32 @@ const Form = ({ setGoodBye }) => {
     dispatch({ type: "ALL_DELETE_ORDER", payload: [] });
   }
 
-
   const [FullInfo, setFullInfo] = useState({
     Name: "",
     Phone: "",
     Adress: "",
   });
 
-  console.log(FullInfo)
-
   const [attention, setAttention] = useState(true);
 
- 
+  async function createNewOrder(data,event) {
 
-  async function createNewOrder(data) {
-
-    const newOrder = { 
+    
+    const newOrder = {
       FullInfo,
       id: Date.now(),
-       data };
+      data,
+    };
 
-    await ContentServies.PostQuery(newOrder);
+    setGoodBye(false);
+    // await ContentServies.PostQuery(newOrder);
 
     setFullInfo({
       Name: "",
       Phone: "",
       Adress: "",
     });
-    setGoodBye(false);
+   
     DeleteAllOrders();
   }
 
@@ -50,7 +48,6 @@ const Form = ({ setGoodBye }) => {
       setAttention(true);
     }, 3000);
   }
- 
 
   return (
     <div>

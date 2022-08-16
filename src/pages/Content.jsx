@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BlockOfContent from "../components/BlockOfContent/BlockOfContent.jsx";
-import "../../style/style.scss"
+import "../../style/style.scss";
 import cross from "../assets/cross.png";
 import BlockForOrder from "../components/UI/BlockForOrder/BlockForOrder.jsx";
 import ButtonForBackOrSendOrder from "../components/UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder.jsx";
@@ -15,44 +15,46 @@ import Input from "../Input.jsx";
 import ListPage from "../components/UI/ListPage/ListPage.jsx";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchBeer } from "../Redux/Async/AcynsQuery";
 function Content() {
-
   const dispatch = useDispatch();
-  const params = useParams()
+  const params = useParams();
 
   const beer = useSelector((state) => state.beer.dataBeer);
   const errorRedux = useSelector((state) => state.beer.error);
   const isLoadingRedux = useSelector((state) => state.beer.isLoading);
   const qualityOrder = useSelector((state) => state.order.OrderPosition.length);
-  
+
   const [goodBye, setGoodBye] = useState(true);
   const [filterSelector, setfilterSelector] = useState("");
   const [filterInput, setfilterInput] = useState("");
 
   // всё что относится к пагинации
- 
+
   const [currentPage, setcurrentPage] = useState(1);
   const [limit, setLimit] = useState(25);
 
   function HideMod(hide) {
-    dispatch({ type: 'HIDE_MOD', payload: hide })
-
+    dispatch({ type: "HIDE_MOD", payload: hide });
   }
 
   useEffect(() => {
-
     setcurrentPage(params.currentPage);
-
   }, [params.currentPage]);
+
+  useEffect(() => {
+    if (isLoadingRedux) {
+      dispatch(fetchBeer());
+    
+    }
+  }, []);
 
   useEffect(() => {
     setfilterSelector("");
     setfilterInput("");
-
   }, [currentPage]);
 
-  console.log(beer)
-
+ console.log(beer)
   return (
     <div>
       <Header />
@@ -74,11 +76,13 @@ function Content() {
           <div className="Allcontent">
             <ListPage />
 
-            {useSortingContent(beer[0][`beer_${currentPage}_limit_${limit}`],
+            {useSortingContent(
+              beer[0][`beer_${currentPage}_limit_${limit}`],
               filterSelector,
               filterInput
             ).length !== 0 ? (
-              useSortingContent(beer[0][`beer_${currentPage}_limit_${limit}`],
+              useSortingContent(
+                beer[0][`beer_${currentPage}_limit_${limit}`],
                 filterSelector,
                 filterInput
               ).map((content) => (
@@ -109,7 +113,7 @@ function Content() {
                     </div>
                     <BlockForOrder />
                     <p className="FullInfoAboutClient">Place an order</p>
-                    <Form  setGoodBye={setGoodBye} />
+                    <Form setGoodBye={setGoodBye} />
                   </div>
                 ) : (
                   <div className="NothingOrder">

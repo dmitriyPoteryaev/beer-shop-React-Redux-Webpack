@@ -13,8 +13,9 @@ return  async function(dispatch){
          
 try{
 
-    const res = await  axios.get( `http://localhost:3000/allbeer`);
-    dispatch(setDataBeer(res.data))
+    const res = await  axios.get( `https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json`);
+    console.log(res)
+    dispatch(setDataBeer(res.data.allbeer))
   
 
 }

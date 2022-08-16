@@ -18,7 +18,7 @@ case 'ADD_ORDER':
         return {...state, OrderPosition: state.OrderPosition.filter((position) => position.id !== action.payload) }
 
         case 'ALL_DELETE_ORDER':
-        return {...state, OrderPosition: action.payload }
+        return {...state, OrderPosition: [...action.payload] }
 
         default:
             return state

@@ -9,8 +9,9 @@ const ListPage = () => {
   const [TotalPage, setTotalPages] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
   const [limit, setLimit] = useState(25);
-  
-const TotalPages = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+
+  const TotalPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
   useEffect(() => {
     params.currentPage == 1
       ? setbordTotalPages(
@@ -32,8 +33,6 @@ const TotalPages = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
   const [bordTotalPages, setbordTotalPages] = useState([]);
 
-  console.log(bordTotalPages)
-
   return (
     <div className="BlockPages">
       <Link
@@ -48,21 +47,11 @@ const TotalPages = [1,2,3,4,5,6,7,8,9,10,11,12,13]
       </Link>
       {bordTotalPages.map((pages) =>
         params.currentPage == pages ? (
-          <Link 
-          className="PageActive"
-          key={pages}
-          to={`/beer/${
-            pages
-          }`}
-          >
-           {pages}</Link>
-           ): (
-          <Link className="Page"
-           key={pages}
-           to={`/beer/${
-            pages
-          }`}
-           >
+          <Link className="PageActive" key={pages} to={`/beer/${pages}`}>
+            {pages}
+          </Link>
+        ) : (
+          <Link className="Page" key={pages} to={`/beer/${pages}`}>
             {pages}
           </Link>
         )
