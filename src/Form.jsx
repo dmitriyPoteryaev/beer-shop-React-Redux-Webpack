@@ -30,7 +30,7 @@ const Form = ({ setGoodBye }) => {
     };
 
     setGoodBye(false);
-    // await ContentServies.PostQuery(newOrder);
+    await ContentServies.PostQuery(newOrder);
 
     setFullInfo({
       Name: "",

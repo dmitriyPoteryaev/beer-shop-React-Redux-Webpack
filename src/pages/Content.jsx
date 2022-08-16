@@ -54,7 +54,7 @@ function Content() {
     setfilterInput("");
   }, [currentPage]);
 
- console.log(beer)
+
   return (
     <div>
       <Header />

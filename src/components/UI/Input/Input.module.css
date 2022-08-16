@@ -1,0 +1,14 @@
+.InfoAboutClient {
+    width: 364px;
+    height: 50px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: black;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
+  }

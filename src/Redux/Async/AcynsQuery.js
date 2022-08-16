@@ -12,9 +12,9 @@ return  async function(dispatch){
 
          
 try{
+    // https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json
+    const res = await  axios.get( `https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json `);
 
-    const res = await  axios.get( `https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json`);
-    console.log(res)
     dispatch(setDataBeer(res.data.allbeer))
   
 
