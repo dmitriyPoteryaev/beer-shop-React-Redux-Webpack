@@ -25,12 +25,9 @@ module.exports = {
         extensions: [".js", ".json", ".png"],
       },
       devServer: {
-        historyApiFallback: true,
-        static: {
-         directory: path.join(__dirname, "/"),
-       },
-        port: 8081,
-        open: true
+        static: "./",
+        port: 4200,
+        // liveReload: false
       },
       resolve:{
 
