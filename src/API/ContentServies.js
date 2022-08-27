@@ -12,24 +12,24 @@ export   class  ContentServies{
 // После частого использовния API , при открытии страницы на gh-pages  у меня появлялась ошибка -429. После этого решил использовать json-server
 
     
-static async GetQuery  (limit=25, page=1) {
+// static async GetQuery  (limit=25, page=1) {
 
    
-     const response = await axios.get( `http://localhost:3000/allbeer`);
+//      const response = await axios.get( `https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json`);
 
      
 
-    return response;
-}
+//     return response;
+// }
 
 
-static async PostQuery  (order) {
-    const response = await axios.post('http://localhost:3000/requests',{
-        order 
-    });
+// static async PostQuery  (order) {
+//     const response = await axios.post('http://localhost:3000/requests',{
+//         order 
+//     });
 
  
-}
+// }
 
 }
 

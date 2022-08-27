@@ -12,7 +12,8 @@ module.exports = {
     mode: "development",
     // указываем тот файл,который является входным.Т.е мы указываем путь к основному файлу,а webpack уже самостоятельно соединяет все модули
     entry: {
-      main: ["@babel/polyfill","./src/index.jsx"],
+      // 
+      main: ["./src/index.jsx"],
     },
     // указываем куда нужно складывать все результаты webpack'a
     output: {
@@ -20,35 +21,25 @@ module.exports = {
       // куда это всё складывать?Путь(дорожка) указавается в поле path
       // для того чтобы использовать данное поле воспользуемся встроенным модулем path(он прописан вверху)
   
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, 'dist'),
     },resolve: {
-        extensions: [".js", ".json", ".png"],
+        extensions: [".js", ".json", '.jsx', ".png"],
       },
       devServer: {
+        historyApiFallback: true,
         static: "./",
         port: 4200,
-        // liveReload: false
+        liveReload: false
       },
-      resolve:{
-
-extensions: ['.js', '.jsx']
-
-      },
+   
       plugins: [
         new HTMLWebpackPlugin({
           template: "./index.html",
         }),  new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",
-          }),
-          new CopyWebpackPlugin({
-      
-            patterns:[
-              {
-            from: path.resolve(__dirname, 'src/assets'),
-            to: path.resolve(__dirname, 'dist/assets')
-          }
-          ] })],
+          })
+        ],
         module: {
             rules: [  {
               test: /\.css$/,
@@ -85,10 +76,6 @@ extensions: ['.js', '.jsx']
                   },
                 }},
 
-                {
-                  test: /\.(png|jpg|svg|gif)$/,
-                  type: "asset/resource",
-                },
                 {
                   test: /\.jsx$/,
                   exclude: /node_modules/,

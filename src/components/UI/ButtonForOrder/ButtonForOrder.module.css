@@ -9,12 +9,13 @@
   height: 26px;
   background-color: white;
   cursor:pointer;
+  background-image: url("https://mdn.mozillademos.org/files/11991/startransparent.gif") 
 }
 
 .imgButtonForOrder{
   width: 24px;
   height: 26px;
-  
+ 
 
 }
 .cicle{
