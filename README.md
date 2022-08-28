@@ -1,7 +1,7 @@
 # beer-shop
 
 ## Посмотреть сайт 
-- `https://dmitriypoteryaev.github.io/beer-shop-React-Redux-Webpack/`
+- `https://beer-project-64835.firebaseapp.com/`
 
 
 ## Если страницу с проектом по каким-то причинам нельзя посмотреть , то запустите страницу в соответствии с инструкцией , которая указана ниже
