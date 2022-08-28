@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open",
+    "serve": "live-server public/",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "cross-env NODE_ENV=development  webpack-dev-server --mode development --open",
     "backend": "npx json-server ./db1.json",
-    "build": "webpack --mode production",
     "start:backend": "npm run start || npm run backend",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d public"
   },
+  "browserslist": "> 0.25%, not dead",
   "keywords": [
     "react",
     "webpack",
@@ -28,10 +30,13 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
     "file-loader": "^6.2.0",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.6.1",
     "node-sass": "^7.0.1",
     "react-input-mask": "^2.0.4",
@@ -44,11 +49,13 @@
     "scss": "^0.2.4",
     "scss-loader": "^0.0.1",
     "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.5",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@babel/polyfill": "^7.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
