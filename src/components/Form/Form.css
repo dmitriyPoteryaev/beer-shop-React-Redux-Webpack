@@ -1,3 +1,4 @@
+
 .InfoAboutClient {
     width: 364px;
     height: 50px;
@@ -11,4 +12,9 @@
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 14px;
+  }
+  
+  .Error {
+    text-align: center;
+    margin-top: 200px;
   }

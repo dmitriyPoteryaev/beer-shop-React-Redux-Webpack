@@ -1,0 +1,96 @@
+.navbar {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background: url("../../../assets/foam.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navbar__links {
+  text-decoration: none;
+  margin-left: auto;
+  display: flex;
+  width: 400px;
+  text-align: center;
+  margin-right: 15px;
+}
+.navbar__links .pos_navbar {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  margin-right: 45px;
+  padding: 7px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.navbar__links .pos_navbar:hover,
+.navbar__links .pos_navbar:focus {
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0 0 5px red;
+  outline: none;
+  position: relative;
+}
+/* Для того чтобы появилась стрелка слева можно использовать пседоэлемент */
+.navbar__links .pos_navbar:before {
+  position: absolute;
+  left: -1em;
+  content: ">";
+  color: transparent;
+  font-weight: 800;
+}
+
+.Image_nav {
+  height: 300%;
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+@media (min-width: 0px) and (max-width: 1000px) {
+  .navbar__links {
+    flex-direction: column;
+  }
+}
+@media (min-width: 0px) and (max-width: 850px) {
+  .navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navbar__links {
+    flex-direction: row;
+  }
+  .Image_nav {
+    height: 150px;
+    width: 100%;
+  }
+  .navbar__links {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+  }
+  .navbar__links .pos_navbar {
+    margin: 0;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+  .navbar__links .pos_navbar {
+    font-size: 16px;
+  }
+  .navbar__links .pos_navbar:hover,
+  .navbar__links .pos_navbar:focus {
+    text-shadow: 0 0 5px red;
+    font-size: 16px;
+    content: "";
+  }
+
+  .navbar__links .pos_navbar:before {
+    content: "";
+  }
+}

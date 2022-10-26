@@ -1,0 +1,109 @@
+.sign {
+  width: calc(33% - 12px);
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  margin: 3em 0 0 0 ;
+}
+.Image {
+  height: 300px;
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+.sign .ReadMore:hover,
+.sign .ReadMore:focus {
+  text-shadow: 0 0 5px red;
+  outline: none;
+}
+.NotFullDec{
+
+    margin-top: 2em;
+}
+.FullDec{
+    display: none;
+}
+.sign:has(.modeMoreInfornation:checked) .FullDec{
+    display: block;
+    margin-top: 2em;
+   
+  }
+  .sign:has(.modeMoreInfornation:checked) .NotFullDec{
+    display: none;
+   
+  }
+
+/* здесь для мобилок тебе нужно будет менять ширину */
+
+
+
+
+@media (max-width: 1900px) {
+  .sign {
+    width: calc(33% - 12px);
+   
+  }
+  .Image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .sign {
+    width: calc(45% - 12px);
+  }
+  .Image {
+    height: 350px;
+  }
+ 
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .sign {
+    width: calc(80% - 12px);
+  }
+  .Image {
+    height: 450px;
+  }
+}
+
+@media (min-width: 610px) and (max-width: 900px) {
+  .sign {
+    width: calc(90% - 12px);
+  }
+}
+
+@media (min-width: 0px) and (max-width: 610px) {
+  .sign {
+    width: 100%;
+  }
+ 
+}
+@media (min-width: 0px) and (max-width: 550px) {
+  .sign {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 550px) {
+  .sign {
+    width:100%;
+    margin: 0 0 0 0;
+  }
+
+ 
+}
+
+@media (min-width: 0px) and (max-width: 450px) {
+  .sign {
+    width:100%;
+    margin: 0 0 0 0;
+    
+  }
+  .Image {
+    height: 250px;
+  }
+  
+}

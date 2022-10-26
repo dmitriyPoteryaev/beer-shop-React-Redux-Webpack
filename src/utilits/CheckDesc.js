@@ -1,11 +1,11 @@
 
 
 
-function  CheckDesc(desc){
+function  CheckDesc(desc,amount){
 
-if(desc.split('').length>140)
+if(desc.split('').length>amount)
 {
-return  [...desc.split('').filter((elem,i)=> i<=140).join(''),'...']
+return  [...desc.split('').filter((elem,i)=> i<=amount).join(''),'...']
 }
 else{
 

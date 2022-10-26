@@ -12,6 +12,7 @@ const BlockOfContent = ({ value,currentPage }) => {
   const dispatch = useDispatch();
 
 
+
   function addOrder(order){
     dispatch({type:'ADD_ORDER', payload:order})
   }
@@ -46,7 +47,7 @@ const BlockOfContent = ({ value,currentPage }) => {
       />
       <p className={classes.abv}>{abv} %</p>
       <p className={classes.TitleDescription}>Description</p>
-      <p className={classes.description}>{CheckDesc(description)}</p>
+      <p className={classes.description}>{CheckDesc(description,140)}</p>
     </div>
   );
 };

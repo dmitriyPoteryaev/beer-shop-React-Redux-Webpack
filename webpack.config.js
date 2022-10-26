@@ -9,82 +9,78 @@ const TerserWebpackPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetPlugin = require("css-minimizer-webpack-plugin");
 let mode = "development"
 
+
+
 if (isProd) { // Режим production, если 
   // при запуске вебпака было указано --mode=production
   mode = 'production';
+
 }
 
-const publicPath = process.env.PUBLIC_URL || '/';
+const target = mode==='development'?'web':'browserslist';
+const devtool = mode==='development'?'source-map':undefined;
 
 
-// console.log(publicPath)
-console.log(mode)
-// const optimization = () => {
-//   const config = {
-//     splitChunks: {
-//       chunks: "all",
-//     },
-//   };
-
-//   if (isProd) {
-//     config.minimizer = [
-//       new OptimizeCssAssetPlugin(),
-//       new TerserWebpackPlugin(),
-//     ];
-//   }
-
-//   return config;
-// };
 
 module.exports = {
   
   mode,
+  target,
+  devtool,
 
     // собираем всё в режиме разработки
    
     
     // указываем тот файл,который является входным.Т.е мы указываем путь к основному файлу,а webpack уже самостоятельно соединяет все модули
-    entry: {
- //  
- main: ['@babel/polyfill',"./src/index.jsx"]
+    entry: ['@babel/polyfill',path.resolve(__dirname, 'src', 'index.jsx')],
 
-    }
-     
-     
-    ,
-   
+ 
 
     // указываем куда нужно складывать все результаты webpack'a
     output: {
+
       filename: "[name].[contenthash].js",
       
       path: path.resolve(__dirname, 'public'),
-      publicPath
+    
+
+      publicPath: '/'
       
       
     },resolve: {
-        extensions: [".js", ".json", '.jsx', ".png"],
+        extensions: [".js", ".json", '.jsx', ".png", ".svg"],
       },
     //  optimization: optimization(),
       devServer: {
-        // чтобы не было not Get beer/1  
+        // чтобы не было not Get 
         historyApiFallback: true,
-        // static: "./",
+        static: "./",
         port: 4200,
+     open:true,
+       
         //для Post-запросов, чтобы страница не перезагружалась
-        liveReload: false
+        liveReload: true
       },
    
       plugins: [
         new HTMLWebpackPlugin({
-          template: "./index.html"
+          template: path.resolve(__dirname, 'src', 'index.html')
         }),  new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",
           })
         ],
         module: {
-            rules: [  {
+            rules: [ 
+              
+              {
+                test: /\.html$/,
+
+                use: [
+                  {
+                    loader:'html-loader',
+                  }],
+             
               test: /\.css$/,
               use: [
                 {

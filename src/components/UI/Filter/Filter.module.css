@@ -6,3 +6,12 @@ margin-right:0px;
 margin-left:100px;
 align-self:baseline;
 }
+.Filter {
+    font-family: "PT Sans";
+    display: flex;
+    justify-content: space-between;
+    margin-top: 42px;
+    margin-right: 137px;
+    margin-bottom: 0px;
+    margin-left: 88px;
+  }

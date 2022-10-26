@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./ListPage.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -15,15 +16,15 @@ const ListPage = () => {
   useEffect(() => {
     params.currentPage == 1
       ? setbordTotalPages(
-          TotalPages.filter((elem) => elem <= +params.currentPage + 5)
-        )
+        TotalPages.filter((elem) => elem <= +params.currentPage + 5)
+      )
       : params.currentPage >= TotalPages.length - 5
-      ? setbordTotalPages(
+        ? setbordTotalPages(
           TotalPages.filter(
             (elem) => elem >= TotalPages.length - 5 && elem <= TotalPages.length
           )
         )
-      : setbordTotalPages(
+        : setbordTotalPages(
           TotalPages.filter(
             (elem) =>
               elem >= +params.currentPage && elem <= +params.currentPage + 5
@@ -37,11 +38,10 @@ const ListPage = () => {
     <div className="BlockPages">
       <Link
         className="Prev"
-        to={`/beer/${
-          +params.currentPage == 1
+        to={`/beer/${+params.currentPage == 1
             ? (params.currentPage = 1)
             : +params.currentPage - 1
-        }`}
+          }`}
       >
         Previous
       </Link>
@@ -59,11 +59,10 @@ const ListPage = () => {
 
       <Link
         className="Next"
-        to={`/beer/${
-          +params.currentPage == TotalPages.length
+        to={`/beer/${+params.currentPage == TotalPages.length
             ? (params.currentPage = TotalPages.length)
             : +params.currentPage + 1
-        }`}
+          }`}
       >
         Next
       </Link>

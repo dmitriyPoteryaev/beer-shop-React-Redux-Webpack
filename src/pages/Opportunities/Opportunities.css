@@ -1,0 +1,22 @@
+.Opportunities {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.MoreInformation {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  font-family: "PT Sans", sans-serif;
+  margin: 3em 0 3em 0;
+  padding: 3em 0 3em 0;
+  font-style: italic;
+}
+.Title {
+  font-weight: 800;
+}
