@@ -1,5 +1,6 @@
 .navbar {
   height: 200px;
+  font-family: "PT Sans", sans-serif;
   width: 100%;
   display: flex;
   align-items: center;

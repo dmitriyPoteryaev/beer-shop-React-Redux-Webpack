@@ -2,28 +2,37 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./BeerPage.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-
-import { fetchBeer } from "../../../Redux/Async/AcynsQuery";
+import { fetchBeer } from "../../../Redux/Async/AcynsQuery.js";
+import {setDataBeerAll} from '../../../Redux/reducers/BeerReducer.js';
 
 const BeerPage = () => {
-  const beer = useSelector((state) => state.beer.dataBeer);
-
-  const isLoadingRedux = useSelector((state) => state.beer.isLoading);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isLoadingRedux) {
-      dispatch(fetchBeer());
-    }
-  }, []);
+  const beer = useSelector((state) => state?.beer?.dataBeer);
+  const errorRedux = useSelector((state) => state?.beer?.error);
+  const isLoadingRedux = useSelector((state) => state?.beer?.isLoading);
 
   const [currenBeer, setcurrenBeer] = useState({});
-  
 
   const params = useParams();
 
   let limit = 25;
+
+  const dispatch = useDispatch();
+
+
+   
+  useEffect(() => {
+    // dispatch(setDataBeerAll([]))
+
+    if (isLoadingRedux) {
+      console.log(isLoadingRedux)
+      dispatch(fetchBeer());
+    }
+  }, []);
+
+
+  
+console.log(beer)
+  
 
   function GetBEER() {
     setcurrenBeer(
@@ -43,9 +52,8 @@ const BeerPage = () => {
 
   return (
     <div>
-    
- {/* mobile screen */}
- 
+      {/* mobile screen */}
+
       {!Object.values(currenBeer).some((el) => !!el == false) ? (
         <div className={classes.container}>
           <div>
@@ -68,7 +76,7 @@ const BeerPage = () => {
             </div>
           </div>
 
-          {/* full screen */}
+          {/* desctop screen */}
 
           <div className={classes.leftColumn}>
             <img src={currenBeer.image_url} />

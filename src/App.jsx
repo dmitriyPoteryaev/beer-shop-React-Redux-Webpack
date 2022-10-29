@@ -1,14 +1,16 @@
 import React from "react";
 import Content from "./pages/Content/Content";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About/About";
 import Opportunities from "./pages/Opportunities/Opportunities";
 import BeerPage from "./components/UI/BeerPage/BeerPage.jsx";
 
+import "../style/style.scss";
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter >
+      <HashRouter >
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/opportunities" element={<Opportunities />} />
@@ -18,7 +20,7 @@ function App() {
 
           <Route path="*" element={<About />} />
         </Routes>
-      </BrowserRouter >
+      </HashRouter >
     </div>
   );
 }

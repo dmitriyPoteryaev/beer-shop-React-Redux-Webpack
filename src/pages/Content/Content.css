@@ -1,3 +1,15 @@
+
+
+.beers, .Error, .NotFound{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin: 2em 0 2em 0;
+  padding: 0;
+  text-align: center;
+
+}
+
 .Allcontent {
     display: flex;
     flex-wrap: wrap;
@@ -8,4 +20,8 @@
     margin-top: 0px;
     margin-bottom: 66px;
   }
-  
+ 
+
+  .hide{
+    display: none;
+  }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css'
 
-const Input = ({setfilterInput}) => {
+const Search = ({setfilterInput}) => {
     return (
         <div className="searchContent">
             <input type='text'
@@ -13,4 +13,4 @@ const Input = ({setfilterInput}) => {
     );
 };
 
-export default Input;
+export default Search;

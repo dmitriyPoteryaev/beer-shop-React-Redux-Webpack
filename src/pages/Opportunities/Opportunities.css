@@ -1,22 +1,35 @@
-.Opportunities {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 
-.MoreInformation {
+
+.pageMoreInfo {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  font-family: "PT Sans", sans-serif;
-  margin: 3em 0 3em 0;
-  padding: 3em 0 3em 0;
-  font-style: italic;
+  margin: 2em 0 2em 0;
+  padding: 0;
+
 }
-.Title {
+.listInfo__item{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+}
+.listInfo__title {
+  width: 100%;
+
   font-weight: 800;
+  font-size: 30px;
+
+  text-align: center;
+}
+
+.listInfo__text {
+  text-align: center;
+
+  margin: 3em 0;
+
+  font-style: italic;
+  font-weight: 600;
 }

@@ -1,10 +1,8 @@
 .sign {
   width: calc(33% - 12px);
-  font-family: "PT Sans", sans-serif;
-  font-weight: 800;
-  margin: 3em 0 0 0 ;
+  margin: 3em 0 0 0;
 }
-.Image {
+.sign__img {
   height: 300px;
   width: 100%;
   padding: 0px;
@@ -12,39 +10,32 @@
   margin: 0px;
 }
 
-.sign .ReadMore:hover,
-.sign .ReadMore:focus {
+.sign .excerpt:hover,
+.sign .excerpt:focus {
   text-shadow: 0 0 5px red;
   outline: none;
 }
-.NotFullDec{
-
-    margin-top: 2em;
+.sign__incompleteDesc {
+  margin-top: 2em;
 }
-.FullDec{
-    display: none;
+.sign__completeDesc {
+  display: none;
 }
-.sign:has(.modeMoreInfornation:checked) .FullDec{
-    display: block;
-    margin-top: 2em;
-   
-  }
-  .sign:has(.modeMoreInfornation:checked) .NotFullDec{
-    display: none;
-   
-  }
+.sign:has(.excerpt__text:checked) .sign__completeDesc {
+  display: block;
+  margin-top: 2em;
+}
+.sign:has(.excerpt__text:checked) .sign__incompleteDesc {
+  display: none;
+}
 
 /* здесь для мобилок тебе нужно будет менять ширину */
-
-
-
 
 @media (max-width: 1900px) {
   .sign {
     width: calc(33% - 12px);
-   
   }
-  .Image {
+  .sign__img {
     height: 350px;
   }
 }
@@ -53,17 +44,16 @@
   .sign {
     width: calc(45% - 12px);
   }
-  .Image {
+  .sign__img {
     height: 350px;
   }
- 
 }
 
 @media (min-width: 900px) and (max-width: 1200px) {
   .sign {
     width: calc(80% - 12px);
   }
-  .Image {
+  .sign__img {
     height: 450px;
   }
 }
@@ -78,7 +68,6 @@
   .sign {
     width: 100%;
   }
- 
 }
 @media (min-width: 0px) and (max-width: 550px) {
   .sign {
@@ -89,21 +78,17 @@
 
 @media (min-width: 450px) and (max-width: 550px) {
   .sign {
-    width:100%;
+    width: 100%;
     margin: 0 0 0 0;
   }
-
- 
 }
 
 @media (min-width: 0px) and (max-width: 450px) {
   .sign {
-    width:100%;
+    width: 100%;
     margin: 0 0 0 0;
-    
   }
-  .Image {
+  .sign__img {
     height: 250px;
   }
-  
 }
