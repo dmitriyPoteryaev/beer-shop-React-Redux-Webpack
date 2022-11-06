@@ -1,57 +1,74 @@
-.Page {
-    text-decoration: none;
-    padding: 10px;
-    color:white;
-    width: 40px;
-    height:40px;
-    background-color: black;
-    border-radius:50%;
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-    font-weight: 800;
+.BlockPages {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  justify-content: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+.Page,
+.PageActive {
+  text-decoration: none;
+
+  /* шрифты */
+  color: white;
+  font-weight: 800;
+
+  /* ширина и высота */
+  width: 40px;
+  height: 40px;
+
+  /* стили */
+  background-color: black;
+  border-radius: 50%;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  /* отступы */
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.PageActive {
+  background-color: orange;
+}
+
+.Prev,
+.Next {
+  text-decoration: none;
+  /* всё что относиться к шрифтам */
+  color: white;
+  font-weight: 800;
+
+  /* ширина и высота */
+  width: 90px;
+  height: 40px;
+
+  padding: 10px;
+
+  /* стили */
+  background-color: black;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Prev {
+  /* закругления для предыдущей страницы */
+  border-top-left-radius: 40%;
+  border-bottom-left-radius: 40%;
+}
+
+.Next {
+  /* закругления для следующей страницы */
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+ 
+
+  .Page {
+    display: none;
   }
-  .PageActive {
-    text-decoration: none;
-    padding: 10px;
-    width: 40px;
-    height:40px;
-    border-radius:50%;
-    color:white;
-    background-color: orange;
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-    font-weight: 800;
-  }
-  .Prev{
-    
-    text-decoration: none;
-    color:white;
-    margin-left:20px;
-    padding: 10px;
-    background-color: black;
-    width: 90px;
-    height:40px;
-    border-top-left-radius:40%;
-    border-bottom-left-radius:40%;
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
-    font-weight: 800;
-  }
-  .Next{
-    
-    text-decoration: none;
-    margin-left:20px;
-    padding: 10px;
-    background-color: black;
-    color:white;
-    width: 90px;
-    height:40px;
-    border-top-right-radius:40%;
-    border-bottom-right-radius:40%;
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
-    font-weight: 800;
-  }
-  
+}

@@ -1,10 +1,15 @@
+/* @import '../Link.css'; */
+
+
 /* центрый блок  */
 .pageDesc {
   flex: 1 1 auto;
   margin: 3em 0 3em 0;
   padding: 3em 0 3em 0;
-  width: 100%;
   font-weight: 800;
+
+   /* ширина */
+   width: 100%;
 }
 
 /* обёртка для всех блоков  */

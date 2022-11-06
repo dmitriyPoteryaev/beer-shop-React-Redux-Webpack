@@ -25,11 +25,10 @@ const BlockOfContent = ({ value }) => {
       className={classes.blockForContent}
       onClick={() => router(`/beer/${params.currentPage}/${name}`)}
     >
-      <p className={classes.TitleOfBeer}> {name}</p>
       <img
         src={image_url}
         className={classes.content_picture}
-        alt={"SomethingBeer"}
+        alt={"SomthBeer"}
       />
       <img
         src={PitureButtonForOrder}
@@ -48,8 +47,17 @@ const BlockOfContent = ({ value }) => {
         onMouseOut={(event) => (event.currentTarget.src = PitureButtonForOrder)}
       />
       <p className={classes.abv}>{abv} %</p>
-      <p className={classes.TitleDescription}>Description</p>
-      <p className={classes.description}>{CheckDesc(description, 140)}</p>
+      {/* здесь будет блок с полным описанием пива */}
+    
+     
+          <p className={classes.descBeer__title}> {name}</p>
+          <p className={classes.descBeer__titleDesc}>Description</p>
+          <article className={classes.descBeer__desc}>
+            {CheckDesc(description, 140)}
+          </article>
+     
+ 
+       {/* здесь будет блок с полным описанием пива */}
     </div>
   );
 };

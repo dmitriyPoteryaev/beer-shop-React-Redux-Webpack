@@ -1,11 +1,15 @@
 
-
+/* @import '../Link.css'; */
 .pageMoreInfo {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   margin: 2em 0 2em 0;
   padding: 0;
+
+
+  /* ширина */
+  width: 100%;
 
 }
 .listInfo__item{

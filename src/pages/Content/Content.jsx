@@ -19,6 +19,19 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchBeer } from "../../Redux/Async/AcynsQuery";
 
+// Swiper
+import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from 'swiper';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Swiper стиили
+import "swiper/css";
+
+
+
+import "swiper/css/pagination";
+// скроллбар, чтобы линия была внизу
+import "swiper/css/scrollbar";
+
 function Content() {
   const dispatch = useDispatch();
   const params = useParams();
@@ -33,10 +46,9 @@ function Content() {
   const [currentPage, setcurrentPage] = useState(params.currentPage);
   const [limit, setLimit] = useState(25);
 
+  const [swiperPage, setSwiperPage]=[]
+
   console.log(beer);
-
-
-
 
   let curPageWithBeer = [];
 
@@ -54,7 +66,6 @@ function Content() {
       dispatch(fetchBeer());
     }
   }, []);
-
 
   useEffect(() => {
     setfilterSelector("");
@@ -77,20 +88,34 @@ function Content() {
           />
           {/* Поиск пива в Инпуте */}
           <Search setfilterInput={setfilterInput} />
-
+          
           <div className="Allcontent">
             <ListPage />
-
             {curPageWithBeer.length !== 0 ? (
-              curPageWithBeer.map((content) => (
-                <BlockOfContent value={content} key={content.id} />
-              ))
+              <Swiper
+              modules={[ Pagination, Scrollbar, A11y]}
+                spaceBetween={250}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSlideChange={(event) => console.log(event.activeIndex)}
+                onSwiper={(event) => event.activeIndex}
+                className="slide"
+              >
+                {curPageWithBeer.map((content) => (
+                  <SwiperSlide >
+                    <BlockOfContent value={content} key={content.id}/>  
+                  
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             ) : (
-              <h1  className="NotFound">We didn't find beer for your request</h1>
+              <h1 className="NotFound">We didn't find beer for your request</h1>
             )}
-            <ListPage />
-            <Modal></Modal>
+
+           
           </div>
+          <Modal></Modal>
         </section>
       )}
       <Footer></Footer>

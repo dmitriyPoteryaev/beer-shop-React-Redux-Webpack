@@ -52,7 +52,7 @@
   margin: 0px;
 }
 
-@media (min-width: 0px) and (max-width: 1000px) {
+@media (min-width: 0px) and (max-width: 1050px) {
   .navbar__links {
     flex-direction: column;
   }
