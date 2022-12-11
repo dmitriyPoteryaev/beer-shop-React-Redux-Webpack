@@ -2,7 +2,7 @@
   "name": "beer",
   "version": "1.0.0",
   "description": "react,webpack,punkapi",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "live-server public/",

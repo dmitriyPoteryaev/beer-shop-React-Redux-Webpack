@@ -1,23 +1,20 @@
 import "./Modal.css";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import GoodBye from "../UI/GoodBye/GoodBye";
-import ModalForOrder from '../ModalForOrder/ModalForOrder'
-import BlockForOrder from '../UI/BlockForOrder/BlockForOrder'
-import Form from '../Form/Form'
-import ButtonForBackOrSendOrder from '../UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder'
-import {useSelector ,useDispatch} from 'react-redux';
+import ModalForOrder from "../ModalForOrder/ModalForOrder";
+import BlockForOrder from "../UI/BlockForOrder/BlockForOrder";
+import Form from "../Form/Form";
+import ButtonForBackOrSendOrder from "../UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder";
+import { useSelector, useDispatch } from "react-redux";
 import cross from "../../assets/cross.png";
 
-
 const Modal = () => {
-
- const dispatch = useDispatch()
+  const dispatch = useDispatch();
   function HideMod(hide) {
     dispatch({ type: "HIDE_MOD", payload: hide });
   }
-    
-  const [goodBye, setGoodBye] = useState(true);
 
+  const [goodBye, setGoodBye] = useState(true);
 
   const qualityOrder = useSelector((state) => state.order.OrderPosition.length);
 

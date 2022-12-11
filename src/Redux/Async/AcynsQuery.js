@@ -1,37 +1,20 @@
-import {setDataBeer} from '../reducers/BeerReducer';
-import {setErrorBeer} from '../reducers/BeerReducer';
-import {setisLoadingBeer} from '../reducers/BeerReducer';
+import { setDataBeer } from "../reducers/BeerReducer";
+import { setErrorBeer } from "../reducers/BeerReducer";
+import { setisLoadingBeer } from "../reducers/BeerReducer";
+import { getAnswer } from "../../customHooks/getAnswer";
 
-import axios from "axios";
+export const fetchBeer = (currentPage) => {
+  return async function (dispatch) {
+    try {
+      let data = await getAnswer(
+        "https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json"
+      );
 
-export const fetchBeer= ()=>{
-return  async function(dispatch){
-    
-try{
-    // https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json
-    const res = await  axios.get( `https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json `);
-
-    dispatch(setDataBeer(res.data.allbeer))
-  
-
-}
-catch(e){
-    dispatch(setErrorBeer(e.message)) 
-
-}
-finally{
-
-    dispatch(setisLoadingBeer(false))
-
-}
- 
-
-}
-
-
-        
-
-
-
-}
-
+      dispatch(setDataBeer(data.allbeer[0][`beer_${currentPage}_limit_25`]));
+    } catch (err) {
+      dispatch(setErrorBeer(`Your url have status is ${err}`));
+    } finally {
+      dispatch(setisLoadingBeer(false));
+    }
+  };
+};

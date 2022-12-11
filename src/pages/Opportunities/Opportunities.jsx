@@ -4,6 +4,7 @@ import React from "react";
 // все нужные компоненты
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import Modal from "../../components/Modal/Modal";
 
 // все стили
 import "./Opportunities.css";
@@ -86,6 +87,7 @@ const Opportunities = () => {
           </ul>
         </div>
       </section>
+      <Modal></Modal>
 
       <Footer></Footer>
     </main>
