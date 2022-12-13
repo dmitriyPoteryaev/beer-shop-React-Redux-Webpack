@@ -6,7 +6,7 @@ import Loader from "../../components/UI/Loader/Loader";
 // все нужные компоненты
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import Modal from "../../components/Modal/Modal";
+import ModalForOrder from "../../components/ModalForOrder/ModalForOrder";
 
 import "./BeerPage.scss";
 import "../Link.css";

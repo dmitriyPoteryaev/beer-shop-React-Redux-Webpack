@@ -8,7 +8,7 @@
   display: none;
   font-family: "PT Sans", sans-serif;
   overflow-y: scroll;
- 
+ z-index: 1;
 
 }
 

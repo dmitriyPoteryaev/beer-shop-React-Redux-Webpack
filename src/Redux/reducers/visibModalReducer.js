@@ -1,26 +1,16 @@
+const defaultState = {
+  visModal: false,
+};
 
-const defaultState={
+export default function visibModalReducer(state = defaultState, action) {
+  switch (action.type) {
+    case "SHOW_MOD":
+      return { ...state, visModal: action.payload };
 
-    visModal:false
-}
+    case "HIDE_MOD":
+      return { ...state, visModal: action.payload };
 
-
-
-export default function visibModalReducer(state=defaultState,action) {
-
-    switch(action.type){
-
-case 'SHOW_MOD':
-
-    return {...state, visModal:action.payload  }
-
-    case 'HIDE_MOD':
-        return {...state, visModal: action.payload }
-
-        default:
-            return state
-    }
-
-
-
+    default:
+      return state;
+  }
 }
