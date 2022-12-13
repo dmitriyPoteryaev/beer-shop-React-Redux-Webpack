@@ -1,0 +1,120 @@
+.pageBeer {
+  flex: 1 1 auto;
+  margin: 3em 0 3em 0;
+  padding: 3em 0 3em 0;
+  font-weight: 800;
+  width: 100%;
+  .block-aboutBeer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    .block-picture {
+      margin: 0 3em 3em 3em;
+      .block-picture__picture {
+        height: 50vh;
+      }
+      .block-picture__abv {
+        color: #ff4040;
+        position: absolute;
+        left: 10;
+        top: 0;
+        font-size: 30px;
+      }
+    }
+    .block-desc {
+      margin: 0 3em 3em 3em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-around;
+      width: 75%;
+      .block-desc__beerName {
+        font-size: 22px;
+        color: #358ed7;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        align-self: center;
+      }
+      .block-desc__tagline {
+        font-size: 52px;
+        color: #43484d;
+        align-self: center;
+      }
+      .block-desc__Desc {
+        font-size: 20px;
+        color: #86939e;
+        line-height: 34px;
+        text-align: center;
+      }
+      .block-desc__order {
+        font-size: 20px;
+        border-radius: 5px;
+        margin: 3em 0 3em 0;
+        width: 250px;
+        color: white;
+        background-color: black;
+        height: 50px;
+        align-self: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .food_pairing {
+    font-size: 16px;
+    color: #86939e;
+    line-height: 24px;
+    width: 100%;
+    text-align: center;
+  }
+  @media (min-width: 800px) and (max-width: 950px) {
+    .block-picture__picture {
+      width: 20vw;
+    }
+  }
+  @media (min-width: 700px) and (max-width: 800px) {
+    .block-picture__picture {
+      width: 25vw;
+    }
+  }
+}
+@media (min-width: 650px) and (max-width: 700px) {
+  .block-picture__picture {
+    width: 30vw;
+  }
+}
+@media (min-width: 600px) and (max-width: 650px) {
+  .block-picture__picture {
+    width: 35vw;
+  }
+}
+@media (min-width: 500px) and (max-width: 600px) {
+  .block-picture__picture {
+    width: 40vw;
+  }
+}
+@media (min-width: 0px) and (max-width: 600px) {
+  .pageBeer {
+    .block-aboutBeer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .block-picture {
+        margin: 0;
+        .block-picture__picture {
+          width: 50px;
+          height: 200px;
+        }
+        .block-picture__abv {
+          color: #ff4040;
+          left: 5;
+          top: 0;
+          font-size: 20px;
+        }
+        .block-desc {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,13 @@
 function CheckDesc(desc, amount) {
-  if (desc.split("").length > amount) {
-    return [
-      ...desc
-        .split("")
-        .filter((elem, i) => i <= amount)
-        .join(""),
-      "...",
-    ];
-  } else {
-    return desc.split("").join("");
-  }
+  return desc.split("").length > amount
+    ? [
+        ...desc
+          .split("")
+          .filter((elem, i) => i <= amount)
+          .join(""),
+        "...",
+      ]
+    : desc.split("").join("");
 }
 
 export default CheckDesc;

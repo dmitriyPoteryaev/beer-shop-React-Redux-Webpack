@@ -19,10 +19,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background-color: #959dad;
+  background-color: black;
   left: 16px;
   top: -4px;
 }
@@ -31,7 +31,7 @@
   font-family: "PT Sans";
   text-align: center;
   color: white;
-  font-size: 8px;
+  font-size: 15px;
   font-weight: 700;
 }
 @media (min-width: 0px) and (max-width: 400px) {

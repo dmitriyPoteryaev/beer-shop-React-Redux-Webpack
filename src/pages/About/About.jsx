@@ -9,7 +9,7 @@ import "../Link.css";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Offer from "../../components/Offer/Offer";
-import Modal from "../../components/Modal/Modal";
+import ModalForOrder from "../../components/ModalForOrder/ModalForOrder";
 
 // все данные с бека для отображения возможностей
 import * as offers from "../../JSON/Offer.json";
@@ -60,7 +60,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Modal></Modal>
+      <ModalForOrder></ModalForOrder>
       <Footer></Footer>
     </main>
   );

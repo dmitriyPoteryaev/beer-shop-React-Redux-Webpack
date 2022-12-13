@@ -7,7 +7,7 @@ export const fetchBeer = (currentPage) => {
   return async function (dispatch) {
     try {
       let data = await getAnswer(
-        "https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/db1.json"
+        "https://raw.githubusercontent.com/DHDHFFHDHDHFVHvhb/dbForBeer/main/dbBeer.json"
       );
 
       dispatch(setDataBeer(data.allbeer[0][`beer_${currentPage}_limit_25`]));

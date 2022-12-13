@@ -1,20 +1,11 @@
-function  getPages(TotalCount,limit){
+function getPages(TotalCount, limit) {
+  const arrPages = [];
 
-    const arrPages=[]
+  for (let i = 1; i <= TotalCount / limit; i++) {
+    arrPages.push(i);
+  }
 
-    
-for(let i=1;i<=(TotalCount/limit);i++){
-   
-
-    arrPages.push(i)
-
+  return arrPages;
 }
 
-
-        return arrPages
-  
-        
-    
-    }
-    
-    export default getPages
+export default getPages;

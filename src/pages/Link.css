@@ -4,10 +4,8 @@
   align-items: center;
    /* ширина */
    width: 100%;
-
   min-height: 100vh;
   flex-direction: column;
-
   font-family: "PT Sans", sans-serif;
 }
 .wrapper {

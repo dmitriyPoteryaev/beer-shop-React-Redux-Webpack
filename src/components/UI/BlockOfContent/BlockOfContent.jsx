@@ -4,8 +4,7 @@ import PitureButtonForOrder from "../../../assets/PitureButtonForOrder.png";
 import blackButtonForOrder from "../../../assets/blackButtonForOrder.png";
 import CheckDesc from "../../../utilits/CheckDesc.js";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setAsyncBeer } from "../../../Redux/reducers/BeerReducer";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const BlockOfContent = ({ value }) => {
@@ -21,44 +20,44 @@ const BlockOfContent = ({ value }) => {
   const { name, id, image_url, abv, description } = value;
 
   return (
-    <div
-      className={classes.blockForContent}
+    <section
+      className={classes.pageContent}
       onClick={() => router(`/beer/${params.currentPage}/${name}`)}
     >
-      <img
-        src={image_url}
-        className={classes.content_picture}
-        alt={"SomthBeer"}
-      />
-      <img
-        src={PitureButtonForOrder}
-        className={classes.ForOrder}
-        alt={"ButtonForOrder"}
-        onClick={(event) => {
-          addOrder({
-            id: Date.now(),
-            image_url,
-            abv,
-            key: Date.now(),
-          }),
-            event.stopPropagation();
-        }}
-        onMouseOver={(event) => (event.currentTarget.src = blackButtonForOrder)}
-        onMouseOut={(event) => (event.currentTarget.src = PitureButtonForOrder)}
-      />
-      <p className={classes.abv}>{abv} %</p>
-      {/* здесь будет блок с полным описанием пива */}
-    
-     
-          <p className={classes.descBeer__title}> {name}</p>
-          <p className={classes.descBeer__titleDesc}>Description</p>
-          <article className={classes.descBeer__desc}>
-            {CheckDesc(description, 140)}
-          </article>
-     
- 
-       {/* здесь будет блок с полным описанием пива */}
-    </div>
+      <div className={classes.wrap}>
+        <img
+          src={PitureButtonForOrder}
+          className={classes.pageContent__btnOrder}
+          alt={"ButtonForOrder"}
+          onClick={(event) => {
+            addOrder({
+              id: Date.now(),
+              image_url:  image_url,
+              abv:abv,
+              key: Date.now(),
+            }),
+              event.stopPropagation();
+          }}
+          onMouseOver={(event) =>
+            (event.currentTarget.src = blackButtonForOrder)
+          }
+          onMouseOut={(event) =>
+            (event.currentTarget.src = PitureButtonForOrder)
+          }
+        />
+        <img
+          src={image_url}
+          className={classes.content_picture}
+          alt={"SomthBeer"}
+        />
+        <article className={classes.desciption}>
+          <span className={classes.desciption__titleBeer}>
+            {name} <p className={classes.pageContent__abv}>{abv} %</p>
+          </span>
+          <p>{CheckDesc(description, 140)}</p>
+        </article>
+      </div>
+    </section>
   );
 };
 

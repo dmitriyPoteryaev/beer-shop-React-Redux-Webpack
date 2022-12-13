@@ -10,14 +10,14 @@ import ListPage from "../../components/UI/ListPage/ListPage.jsx";
 import Loader from "../../components/UI/Loader/Loader.jsx";
 import Filter from "../../components/Filter/Filter";
 import Search from "../../components/Search/Search";
-import Modal from "../../components/Modal/Modal";
+import ModalForOrder from "../../components/ModalForOrder/ModalForOrder";
 import Footer from "../../components/Footer/Footer";
 
 // все нужны утилиты
 import { useSortingContent } from "../../customHooks/useSortingContent.js";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchBeer } from "../../Redux/Async/AcynsQuery";
+import { fetchBeer } from "../../Redux/ReduxThunk/ReduxThunk";
 
 // Swiper
 import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from "swiper";
@@ -90,7 +90,7 @@ function Content() {
               <h1 className="NotFound">We didn't find beer for your request</h1>
             )}
           </div>
-          <Modal></Modal>
+          <ModalForOrder></ModalForOrder>
         </section>
       )}
       <Footer></Footer>
