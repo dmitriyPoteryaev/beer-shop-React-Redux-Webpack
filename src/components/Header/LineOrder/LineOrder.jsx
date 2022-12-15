@@ -1,7 +1,7 @@
 import React from "react";
 import './LineOrder.css';
 
-import ButtonForOrder from "../../UI/ButtonForOrder/ButtonForOrder";
+import Btn_Order from "../../UI/Btn_Order/Btn_Order";
 
 const LineOrder = ({curPage}) => {
   return (
@@ -9,7 +9,7 @@ const LineOrder = ({curPage}) => {
        <span
        className="curPage"
        >{curPage}</span>
-      <ButtonForOrder />
+      <Btn_Order />
     </div>
   );
 };

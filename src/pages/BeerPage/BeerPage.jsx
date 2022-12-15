@@ -6,7 +6,7 @@ import Loader from "../../components/UI/Loader/Loader";
 // все нужные компоненты
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import ModalForOrder from "../../components/ModalForOrder/ModalForOrder";
+import Modal_order from "../../components/Modal_order/Modal_order";
 
 import "./BeerPage.scss";
 import "../Link.css";
@@ -84,7 +84,7 @@ const BeerPage = () => {
           request.
         </h1>
       )}
-      <ModalForOrder></ModalForOrder>
+      <Modal_order></Modal_order>
       <Footer />
     </main>
   );

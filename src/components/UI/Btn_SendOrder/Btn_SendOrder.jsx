@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./ButtonForBackOrSendOrder.module.css";
+import classes from "./Btn_SendOrder.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const ButtonForBackOrSendOrder = ({
+const Btn_SendOrder = ({
   children,
   FullInfo,
   createNewOrder,
@@ -18,8 +18,6 @@ const ButtonForBackOrSendOrder = ({
   function HideMod(hide) {
     dispatch({ type: "HIDE_MOD", payload: hide });
   }
-
-
 
   return (
     <button
@@ -54,4 +52,4 @@ const ButtonForBackOrSendOrder = ({
   );
 };
 
-export default ButtonForBackOrSendOrder;
+export default Btn_SendOrder;

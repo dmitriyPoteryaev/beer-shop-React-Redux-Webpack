@@ -1,9 +1,9 @@
 import React from "react";
 import BigPitureButtonForOrder from "../../../assets/order/basket";
-import classes from "./ButtonForOrder.module.css";
+import classes from "./Btn_Order.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const ButtonForOrder = () => {
+const Btn_Order = () => {
   const dispatch = useDispatch();
 
   const qualityOrder = useSelector((state) => state.order.OrderPosition.length);
@@ -27,4 +27,4 @@ const ButtonForOrder = () => {
   );
 };
 
-export default ButtonForOrder;
+export default Btn_Order;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BlockOfContent from "../../components/UI/BlockOfContent/BlockOfContent";
+import Block_content from "../../components/UI/Block_content/Block_content";
 
 // все стили
 import "./Content.css";
@@ -10,7 +10,7 @@ import ListPage from "../../components/UI/ListPage/ListPage.jsx";
 import Loader from "../../components/UI/Loader/Loader.jsx";
 import Filter from "../../components/Filter/Filter";
 import Search from "../../components/Search/Search";
-import ModalForOrder from "../../components/ModalForOrder/ModalForOrder";
+import Modal_order from "../../components/Modal_order/Modal_order";
 import Footer from "../../components/Footer/Footer";
 
 // все нужны утилиты
@@ -20,7 +20,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchBeer } from "../../Redux/ReduxThunk/ReduxThunk";
 
 // Swiper
-import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from "swiper";
+import { Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Swiper стиили
@@ -82,7 +82,7 @@ function Content() {
               >
                 {curPageWithBeer.map((content) => (
                   <SwiperSlide>
-                    <BlockOfContent value={content} key={content.id} />
+                    <Block_content value={content} key={content.id} />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -90,7 +90,7 @@ function Content() {
               <h1 className="NotFound">We didn't find beer for your request</h1>
             )}
           </div>
-          <ModalForOrder></ModalForOrder>
+          <Modal_order></Modal_order>
         </section>
       )}
       <Footer></Footer>

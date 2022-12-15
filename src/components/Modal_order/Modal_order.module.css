@@ -1,0 +1,89 @@
+.Modal_order {
+  position: fixed;
+  background: rgba(101, 94, 94, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  font-family: "PT Sans", sans-serif;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.block_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 460px;
+  background: white;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+  padding-right: 17px;
+}
+
+.Modal_order.active {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin: 0;
+}
+.block_order{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.block_order__setOrder {
+  font-size: 18px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: #59606d;
+  font-weight: 800;
+}
+
+/* всё для хедера модалки */
+.headerMod {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  margin: 1em 1em 3em 1em;
+}
+.headerMod_cross {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.headerMod_title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
+/* всё для хедера модалки заканчивается */
+
+.block_attention {
+  font-size: 22px;
+  margin-top: 24px;
+  max-width: 364px;
+  font-weight: 800;
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  .modalForOrder {
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .headerMod {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .headerMod_cross {
+    margin-right: 0px;
+  }
+}

@@ -1,13 +1,13 @@
 import React from "react";
-import classes from "./BlockOfContent.module.css";
+import classes from "./Block_content.module.css";
 import PitureButtonForOrder from "../../../assets/PitureButtonForOrder.png";
 import blackButtonForOrder from "../../../assets/blackButtonForOrder.png";
-import CheckDesc from "../../../utilits/CheckDesc.js";
+import CheckDesc from "../../../util/CheckDesc.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-const BlockOfContent = ({ value }) => {
+const Block_content = ({ value }) => {
   const router = useNavigate();
   const dispatch = useDispatch();
 
@@ -61,4 +61,4 @@ const BlockOfContent = ({ value }) => {
   );
 };
 
-export default BlockOfContent;
+export default Block_content;

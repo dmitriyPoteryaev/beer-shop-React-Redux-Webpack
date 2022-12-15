@@ -1,10 +1,10 @@
 import React from "react";
-import classes from "./BlockForOrder.module.css";
+import classes from "./Block_order.module.css";
 import trash from "../../../assets/trash.png";
 import blacktrash from "../../../assets/blacktrash.png";
 import { useDispatch, useSelector } from "react-redux";
 
-const BlockForOrder = () => {
+const Block_order = () => {
   const dispatch = useDispatch();
   const orderPosition = useSelector((state) => state.order.OrderPosition);
 
@@ -33,4 +33,4 @@ const BlockForOrder = () => {
   ));
 };
 
-export default BlockForOrder;
+export default Block_order;

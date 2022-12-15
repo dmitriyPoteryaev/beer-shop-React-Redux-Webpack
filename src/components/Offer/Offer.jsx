@@ -6,7 +6,7 @@ import React from "react";
 import "./Offer.css";
 
 // нужные утилиты
-import CheckDesc from "../../utilits/CheckDesc";
+import CheckDesc from "../../util/CheckDesc";
 
 const Offer = ({ opportinity, photo }) => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ButtonForBackOrSendOrder from "../../components/UI/ButtonForBackOrSendOrder/ButtonForBackOrSendOrder";
-import Attention from "../../utilits/Attention/Attention";
+import Btn_SendOrder from "../UI/Btn_SendOrder/Btn_SendOrder";
+import Attention from "../UI/Attention/Attention";
 import InputMask from "react-input-mask";
 import { useDispatch } from "react-redux";
 import "./Form.css";
@@ -87,13 +87,13 @@ const Form = ({ setGoodBye }) => {
           }
         ></input>
       </form>
-      <ButtonForBackOrSendOrder
+      <Btn_SendOrder
         FullInfo={FullInfo}
         createNewOrder={createNewOrder}
         TimeAttention={TimeAttention}
       >
         Send
-      </ButtonForBackOrSendOrder>
+      </Btn_SendOrder>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { setDataBeer } from "../reducers/BeerReducer";
 import { setErrorBeer } from "../reducers/BeerReducer";
 import { setisLoadingBeer } from "../reducers/BeerReducer";
-import { getAnswer } from "../../customHooks/getAnswer";
+import { getAnswer } from "../../util/getAnswer";
 
 export const fetchBeer = (currentPage) => {
   return async function (dispatch) {
